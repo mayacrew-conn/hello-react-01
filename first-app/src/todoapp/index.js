@@ -2,8 +2,12 @@ import React from 'react';
 import './index.css';
 
 import TodoList from './TodoList';
+import Form from './Form';
 
 class TodoApp extends React.PureComponent {
+  inputDOM = null;
+  input = '';
+  id = 4;
   state = {
     datas: [
       { id: 1, title: '리액트 소개', color: '#000', checked: false },
@@ -18,11 +22,27 @@ class TodoApp extends React.PureComponent {
         <header>
           <h1>오늘 할 일</h1>
         </header>
-        {/* <ColorSelector />
-        <Form /> */}
+        {/* <ColorSelector /> */}
+        <Form handleChange={this.handleChange} handleAdd={this.handleAdd} handleInput={this.handleInput}/>
         <TodoList datas={datas} toggleChecked={this.toggleChecked} toggleDelete={this.toggleDelete}/>
       </div>
     );
+  }
+  handleInput = (inputDOM) => {
+    this.inputDOM = inputDOM;
+  }
+  handleChange = (value) => {
+    this.input = value;
+  }
+  handleAdd = () => {
+    const { datas } = this.state;
+    const newDatas = [
+      ...datas,
+    ];
+    newDatas.push({ id: this.id++, title: this.input, color: '#000', checked: false })
+    this.setState({datas: newDatas});
+    this.inputDOM.value = '';
+
   }
   toggleChecked = (idx) => {
     const { datas } = this.state;
