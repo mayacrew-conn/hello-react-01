@@ -1,11 +1,14 @@
 import React from 'react';
 import './TodoItem.css';
 
-const TodoItem = ({item, toggleChecked}) => {
+const TodoItem = ({item, toggleChecked, toggleDelete}) => {
   return (
     <div className='todo-item' onClick={toggleChecked}>
       <div className='item'>
-        <button>X</button>
+        <button onClick={(evt)=> {
+          evt.stopPropagation();
+          toggleDelete();
+        }}>X</button>
         <h4>{item.title}</h4>
       </div>
       {
@@ -16,3 +19,5 @@ const TodoItem = ({item, toggleChecked}) => {
 }
 
 export default TodoItem;
+
+//splice

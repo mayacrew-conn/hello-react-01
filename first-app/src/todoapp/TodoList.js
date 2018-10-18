@@ -3,9 +3,9 @@ import TodoItem from './TodoItem';
 
 class TodoList extends React.PureComponent {
   render() {
-    const { datas, toggleChecked } = this.props;
+    const { datas, toggleChecked, toggleDelete } = this.props;
     const todoitems = datas.map((item, idx) => {
-      return <TodoItem key={item.id} item={item} toggleChecked={() => toggleChecked(idx)} />
+      return <TodoItem key={item.id} item={item} toggleChecked={() => toggleChecked(idx)} toggleDelete={() => toggleDelete(idx)}/>
     });
     return (
       <div>

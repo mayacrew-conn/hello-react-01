@@ -20,7 +20,7 @@ class TodoApp extends React.PureComponent {
         </header>
         {/* <ColorSelector />
         <Form /> */}
-        <TodoList datas={datas} toggleChecked={this.toggleChecked} />
+        <TodoList datas={datas} toggleChecked={this.toggleChecked} toggleDelete={this.toggleDelete}/>
       </div>
     );
   }
@@ -33,6 +33,16 @@ class TodoApp extends React.PureComponent {
     this.setState({
       datas: newDatas,
     });
+  };
+  toggleDelete = (idx) => {
+    const { datas } = this.state;
+    const newDatas = [
+      ...datas,
+    ];
+    newDatas.splice(idx, 1);
+    this.setState({
+      datas: newDatas,
+    })
   };
 }
 
