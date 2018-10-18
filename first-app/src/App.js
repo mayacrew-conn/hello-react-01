@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Cart from './components/Cart';
+import TodoApp from './todoapp';
+// import Cart from './components/Cart';
 
 class App extends Component {
   constructor(props) {
@@ -24,15 +25,16 @@ class App extends Component {
     ]
   }
   render() {
-    const cartElements = this.state.items.map((item) => {
-      return <Cart key={item.name} item={item}/>
-    });
+    // const cartElements = this.state.items.map((item) => {
+    //   return <Cart key={item.name} item={item}/>
+    // });
     return (
       <div>
         {/* { cartElements } */}
-        <Cart item={this.state.items[0]}/>
+        {/* <Cart item={this.state.items[0]}/>
         <h1>{this.state.count}</h1>
-        <button onClick={() => this.setState({count: this.state.count + 1})}>plus</button>
+        <button onClick={() => this.setState({count: this.state.count + 1})}>plus</button> */}
+        <TodoApp />
       </div>
     );
   }
