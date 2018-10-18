@@ -9,7 +9,7 @@ const TodoItem = ({item, toggleChecked, toggleDelete}) => {
           evt.stopPropagation();
           toggleDelete();
         }}>X</button>
-        <h4>{item.title}</h4>
+        <h4 style={{color: item.color}}>{item.title}</h4>
       </div>
       {
         item.checked && 'V'
